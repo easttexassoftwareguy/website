@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>East Texas Software Guy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #2563a8;
+      --blue-dark: #1a4478;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --bg-alt: #f9fafb;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #fff;
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    body::before {
+      content: "";
+      display: block;
+      height: 3px;
+      background: var(--blue);
+    }
+
+    .wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* ── Header ── */
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    header .wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      height: 44px;
+      width: auto;
+      flex-shrink: 0;
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.18));
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .logo-text .line1 {
+      font-family: 'Lora', Georgia, serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .logo-text .line2 {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--blue);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 80px 0 72px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 2.4rem;
+      line-height: 1.2;
+      max-width: 580px;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 36px;
+      line-height: 1.75;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--blue);
+      color: #fff;
+      text-decoration: none;
+      padding: 13px 30px;
+      font-size: 0.93rem;
+      font-weight: 500;
+      border-radius: 4px;
+      letter-spacing: 0.01em;
+      transition: background 0.15s, box-shadow 0.15s;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    }
+
+    .btn:hover {
+      background: var(--blue-dark);
+      color: #fff;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    /* ── Services grid ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    .service-item {
+      padding: 14px 20px 14px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    .service-item:nth-child(odd) { padding-right: 32px; }
+    .service-item:nth-last-child(-n+2) { border-bottom: none; }
+
+    .service-item::before {
+      content: "";
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--blue);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    /* ── Two-col ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .two-col h2 { margin-bottom: 16px; }
+
+    .who-text {
+      font-size: 0.97rem;
+      color: #374151;
+      line-height: 1.75;
+    }
+
+    .process-steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .process-steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    .step-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── Contact ── */
+    .contact-block {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 40px 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    .contact-block p {
+      font-size: 1rem;
+      color: #374151;
+      line-height: 1.7;
+    }
+
+    .contact-block p em {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.9rem;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .contact-right {
+      flex-shrink: 0;
+      text-align: right;
+    }
+
+    .contact-right .email-link {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      margin-bottom: 12px;
+    }
+
+    .contact-right .email-link:hover { color: var(--blue-dark); text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      padding: 28px 0;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.75rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .service-item:last-child { border-bottom: none; }
+      .two-col { grid-template-columns: 1fr; gap: 40px; }
+      .contact-block { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
+      .contact-right { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <a class="logo" href="/">
+
+        <img class="logo-mark" src="logo.png" alt="East Texas Software Guy" />
+
+        <div class="logo-text">
+          <span class="line1">East Texas Software Guy</span>
+          <span class="line2">easttexassoftwareguy.com</span>
+        </div>
+
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="wrap">
+        <h1>Business software help for East Texas companies.</h1>
+        <p>I help local businesses get their Google Drive, spreadsheets, and workflows under control — so your team stops wasting time hunting for answers.</p>
+        <a class="btn" href="mailto:joe@easttexassoftwareguy.com">Ask Joe for help</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2>What I help with</h2>
+        <div class="services-grid">
+          <div class="service-item">Google Drive, Docs &amp; Sheets cleanup</div>
+          <div class="service-item">Spreadsheet &amp; workflow automation</div>
+          <div class="service-item">Internal AI tools for repetitive admin work</div>
+          <div class="service-item">Simple software fixes for local operations</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap two-col">
+        <div>
+          <h2>Who I help</h2>
+          <p class="who-text">Roofing companies, property managers, movers, contractors, and other local service businesses across East Texas.</p>
+        </div>
+        <div>
+          <h2>How it works</h2>
+          <ol class="process-steps">
+            <li><span class="step-num">1</span> You show me the messy workflow</li>
+            <li><span class="step-num">2</span> I clean it up or automate it</li>
+            <li><span class="step-num">3</span> Your team gets a simpler way to work</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="contact-block">
+          <div>
+            <p>Got a messy workflow or a spreadsheet problem?</p>
+            <p><em>Email me and I'll tell you if I can help.</em></p>
+          </div>
+          <div class="contact-right">
+            <a class="email-link" href="mailto:joe@easttexassoftwareguy.com">joe@easttexassoftwareguy.com</a>
+            <a class="btn" href="mailto:joe@easttexassoftwareguy.com">Ask Joe for help</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      &copy; 2026 East Texas Software Guy &mdash; Serving East Texas
+    </div>
+  </footer>
+
+</body>
+</html>
